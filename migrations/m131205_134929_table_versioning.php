@@ -279,22 +279,14 @@ CREATE TABLE `ophouendophthalmitis_outcome_visual_acuity_version` (
 	public function down()
 	{
 		$this->dropColumn('ophouendophthalmitis_diagnosis_clinical','deleted');
-		$this->dropColumn('ophouendophthalmitis_diagnosis_clinical_version','deleted');
 		$this->dropColumn('ophouendophthalmitis_diagnosis_culture','deleted');
-		$this->dropColumn('ophouendophthalmitis_diagnosis_culture_version','deleted');
 		$this->dropColumn('ophouendophthalmitis_outcome_visual_acuity','deleted');
-		$this->dropColumn('ophouendophthalmitis_outcome_visual_acuity_version','deleted');
 
 		$this->dropColumn('et_ophouendophthalmitis_diagnosis','deleted');
-		$this->dropColumn('et_ophouendophthalmitis_diagnosis_version','deleted');
 		$this->dropColumn('et_ophouendophthalmitis_notificatio','deleted');
-		$this->dropColumn('et_ophouendophthalmitis_notificatio_version','deleted');
 		$this->dropColumn('et_ophouendophthalmitis_outcome','deleted');
-		$this->dropColumn('et_ophouendophthalmitis_outcome_version','deleted');
 		$this->dropColumn('et_ophouendophthalmitis_treatment','deleted');
-		$this->dropColumn('et_ophouendophthalmitis_treatment_version','deleted');
 		$this->dropColumn('et_ophouendophthalmitis_treatment_site','deleted');
-		$this->dropColumn('et_ophouendophthalmitis_treatment_site_version','deleted');
 
 		$this->dropTable('et_ophouendophthalmitis_diagnosis_version');
 		$this->dropTable('et_ophouendophthalmitis_notificatio_version');
