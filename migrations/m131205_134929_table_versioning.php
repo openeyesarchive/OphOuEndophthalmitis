@@ -10,7 +10,7 @@ CREATE TABLE `et_ophouendophthalmitis_diagnosis_version` (
 	`event_id` int(10) unsigned NOT NULL,
 	`clinical_id` int(10) unsigned NOT NULL,
 	`culture_id` int(10) unsigned NOT NULL,
-	`growth` varchar(50) COLLATE utf8_bin DEFAULT '',
+	`growth` varchar(50) DEFAULT '',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
 	`created_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -26,7 +26,7 @@ CREATE TABLE `et_ophouendophthalmitis_diagnosis_version` (
 	CONSTRAINT `acv_et_ophouendophthalmitis_diagnosis_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
 	CONSTRAINT `acv_ophouendophthalmitis_diagnosis_clinical_fk` FOREIGN KEY (`clinical_id`) REFERENCES `ophouendophthalmitis_diagnosis_clinical` (`id`),
 	CONSTRAINT `acv_ophouendophthalmitis_diagnosis_culture_fk` FOREIGN KEY (`culture_id`) REFERENCES `ophouendophthalmitis_diagnosis_culture` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouendophthalmitis_diagnosis_version','id','int(10) unsigned NOT NULL');
@@ -57,7 +57,7 @@ CREATE TABLE `et_ophouendophthalmitis_notificatio_version` (
 	CONSTRAINT `acv_et_ophouendophthalmitis_notificatio_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophouendophthalmitis_notificatio_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophouendophthalmitis_notificatio_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouendophthalmitis_notificatio_version','id','int(10) unsigned NOT NULL');
@@ -91,7 +91,7 @@ CREATE TABLE `et_ophouendophthalmitis_outcome_version` (
 	CONSTRAINT `acv_et_ophouendophthalmitis_outcome_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophouendophthalmitis_outcome_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
 	CONSTRAINT `acv_ophouendophthalmitis_outcome_visual_acuity_fk` FOREIGN KEY (`visual_acuity_id`) REFERENCES `ophouendophthalmitis_outcome_visual_acuity` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouendophthalmitis_outcome_version','id','int(10) unsigned NOT NULL');
@@ -126,7 +126,7 @@ CREATE TABLE `et_ophouendophthalmitis_treatment_version` (
 	CONSTRAINT `acv_et_ophouendophthalmitis_treatment_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophouendophthalmitis_treatment_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
 	CONSTRAINT `acv_et_ophouendophthalmitis_treatment_site_fk` FOREIGN KEY (`site_id`) REFERENCES `et_ophouendophthalmitis_treatment_site` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouendophthalmitis_treatment_version','id','int(10) unsigned NOT NULL');
@@ -144,7 +144,7 @@ CREATE TABLE `et_ophouendophthalmitis_treatment_version` (
 		$this->execute("
 CREATE TABLE `et_ophouendophthalmitis_treatment_site_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -155,7 +155,7 @@ CREATE TABLE `et_ophouendophthalmitis_treatment_site_version` (
 	KEY `acv_et_ophouendophthalmitis_treatment_site_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_et_ophouendophthalmitis_treatment_site_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophouendophthalmitis_treatment_site_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouendophthalmitis_treatment_site_version','id','int(10) unsigned NOT NULL');
@@ -173,7 +173,7 @@ CREATE TABLE `et_ophouendophthalmitis_treatment_site_version` (
 		$this->execute("
 CREATE TABLE `ophouendophthalmitis_diagnosis_clinical_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -184,7 +184,7 @@ CREATE TABLE `ophouendophthalmitis_diagnosis_clinical_version` (
 	KEY `acv_ophouendophthalmitis_diagnosis_clinical_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_ophouendophthalmitis_diagnosis_clinical_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophouendophthalmitis_diagnosis_clinical_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophouendophthalmitis_diagnosis_clinical_version','id','int(10) unsigned NOT NULL');
@@ -202,7 +202,7 @@ CREATE TABLE `ophouendophthalmitis_diagnosis_clinical_version` (
 		$this->execute("
 CREATE TABLE `ophouendophthalmitis_diagnosis_culture_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -213,7 +213,7 @@ CREATE TABLE `ophouendophthalmitis_diagnosis_culture_version` (
 	KEY `acv_ophouendophthalmitis_diagnosis_culture_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_ophouendophthalmitis_diagnosis_culture_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophouendophthalmitis_diagnosis_culture_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophouendophthalmitis_diagnosis_culture_version','id','int(10) unsigned NOT NULL');
@@ -231,7 +231,7 @@ CREATE TABLE `ophouendophthalmitis_diagnosis_culture_version` (
 		$this->execute("
 CREATE TABLE `ophouendophthalmitis_outcome_visual_acuity_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -242,7 +242,7 @@ CREATE TABLE `ophouendophthalmitis_outcome_visual_acuity_version` (
 	KEY `acv_ophouendophthalmitis_outcome_visual_acuity_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_ophouendophthalmitis_outcome_visual_acuity_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophouendophthalmitis_outcome_visual_acuity_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophouendophthalmitis_outcome_visual_acuity_version','id','int(10) unsigned NOT NULL');
