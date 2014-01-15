@@ -43,7 +43,7 @@ class m130404_084614_event_type_OphOuEndophthalmitis extends CDbMigration
 		// element lookup table ophouendophthalmitis_diagnosis_clinical
 		$this->createTable('ophouendophthalmitis_diagnosis_clinical', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -54,7 +54,7 @@ class m130404_084614_event_type_OphOuEndophthalmitis extends CDbMigration
 				'KEY `ophouendophthalmitis_diagnosis_clinical_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `ophouendophthalmitis_diagnosis_clinical_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophouendophthalmitis_diagnosis_clinical_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophouendophthalmitis_diagnosis_clinical',array('name'=>'Uveitis','display_order'=>1));
 		$this->insert('ophouendophthalmitis_diagnosis_clinical',array('name'=>'TASS','display_order'=>2));
@@ -63,7 +63,7 @@ class m130404_084614_event_type_OphOuEndophthalmitis extends CDbMigration
 		// element lookup table ophouendophthalmitis_diagnosis_culture
 		$this->createTable('ophouendophthalmitis_diagnosis_culture', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -74,7 +74,7 @@ class m130404_084614_event_type_OphOuEndophthalmitis extends CDbMigration
 				'KEY `ophouendophthalmitis_diagnosis_culture_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `ophouendophthalmitis_diagnosis_culture_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophouendophthalmitis_diagnosis_culture_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophouendophthalmitis_diagnosis_culture',array('name'=>'Not done','display_order'=>1));
 		$this->insert('ophouendophthalmitis_diagnosis_culture',array('name'=>'No growth','display_order'=>2));
@@ -104,12 +104,12 @@ class m130404_084614_event_type_OphOuEndophthalmitis extends CDbMigration
 				'CONSTRAINT `et_ophouendophthalmitis_diagnosis_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
 				'CONSTRAINT `ophouendophthalmitis_diagnosis_clinical_fk` FOREIGN KEY (`clinical_id`) REFERENCES `ophouendophthalmitis_diagnosis_clinical` (`id`)',
 				'CONSTRAINT `ophouendophthalmitis_diagnosis_culture_fk` FOREIGN KEY (`culture_id`) REFERENCES `ophouendophthalmitis_diagnosis_culture` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		// element lookup table et_ophouendophthalmitis_treatment_site
 		$this->createTable('et_ophouendophthalmitis_treatment_site', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -120,7 +120,7 @@ class m130404_084614_event_type_OphOuEndophthalmitis extends CDbMigration
 				'KEY `et_ophouendophthalmitis_treatment_site_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `et_ophouendophthalmitis_treatment_site_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophouendophthalmitis_treatment_site_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('et_ophouendophthalmitis_treatment_site',array('name'=>'Outpatient','display_order'=>1));
 		$this->insert('et_ophouendophthalmitis_treatment_site',array('name'=>'Inpatient (Local)','display_order'=>2));
@@ -148,7 +148,7 @@ class m130404_084614_event_type_OphOuEndophthalmitis extends CDbMigration
 				'CONSTRAINT `et_ophouendophthalmitis_treatment_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophouendophthalmitis_treatment_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
 				'CONSTRAINT `et_ophouendophthalmitis_treatment_site_fk` FOREIGN KEY (`site_id`) REFERENCES `et_ophouendophthalmitis_treatment_site` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 
 
@@ -168,12 +168,12 @@ class m130404_084614_event_type_OphOuEndophthalmitis extends CDbMigration
 				'CONSTRAINT `et_ophouendophthalmitis_notificatio_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophouendophthalmitis_notificatio_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophouendophthalmitis_notificatio_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		// element lookup table ophouendophthalmitis_outcome_visual_acuity
 		$this->createTable('ophouendophthalmitis_outcome_visual_acuity', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -184,7 +184,7 @@ class m130404_084614_event_type_OphOuEndophthalmitis extends CDbMigration
 				'KEY `ophouendophthalmitis_outcome_visual_acuity_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `ophouendophthalmitis_outcome_visual_acuity_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophouendophthalmitis_outcome_visual_acuity_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophouendophthalmitis_outcome_visual_acuity',array('name'=>'6/5','display_order'=>1));
 		$this->insert('ophouendophthalmitis_outcome_visual_acuity',array('name'=>'6/6','display_order'=>2));
@@ -220,7 +220,7 @@ class m130404_084614_event_type_OphOuEndophthalmitis extends CDbMigration
 				'CONSTRAINT `et_ophouendophthalmitis_outcome_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophouendophthalmitis_outcome_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
 				'CONSTRAINT `ophouendophthalmitis_outcome_visual_acuity_fk` FOREIGN KEY (`visual_acuity_id`) REFERENCES `ophouendophthalmitis_outcome_visual_acuity` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 	}
 
