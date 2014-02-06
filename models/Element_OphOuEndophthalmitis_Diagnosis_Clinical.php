@@ -32,7 +32,7 @@
  * @property User $usermodified
  */
 
-class Element_OphOuEndophthalmitis_Diagnosis_Clinical extends BaseActiveRecordVersioned
+class Element_OphOuEndophthalmitis_Diagnosis_Clinical extends BaseActiveRecordVersionedSoftDelete
 {
 	/**
 	 * Returns the static model of the specified AR class.
