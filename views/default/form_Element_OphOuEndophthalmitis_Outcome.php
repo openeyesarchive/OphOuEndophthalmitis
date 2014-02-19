@@ -26,6 +26,6 @@
 	data-element-display-order="<?php echo $element->elementType->display_order?>">
 	<h4 class="elementTypeName"><?php echo $element->elementType->name; ?></h4>
 
-	<?php echo $form->dropDownList($element, 'visual_acuity_id', CHtml::listData(Element_OphOuEndophthalmitis_Outcome_VisualAcuity::model()->findAll(array('order'=> 'display_order asc')),'id','name'))?>
+	<?php echo $form->dropDownList($element, 'visual_acuity_id', CHtml::listData(Element_OphOuEndophthalmitis_Outcome_VisualAcuity::model()->notDeletedOrPk($element->visual_acuity_id)->findAll(array('order'=> 'display_order asc')),'id','name'))?>
 	<?php echo $form->radioBoolean($element, 'phthisis')?>
 </div>
